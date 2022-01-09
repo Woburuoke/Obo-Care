@@ -61,9 +61,9 @@ mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true  })
         console.log(err)
     })
 
-
+const port = process.env.PORT || 8080;
     
-app.listen(8080, () =>{
+app.listen(port, () =>{
     console.log("We Outside")
 })
 
