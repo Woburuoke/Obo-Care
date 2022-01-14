@@ -1,15 +1,16 @@
 <% layout("layout/boilerplate") %>
 
 
-
-    <div id="cluster-map" ></div>
-    <h1>All Campgrounds</h1>
-
-
-
-    <div>
-        <a href="/campgrounds/new">Add Campground</a>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="cluster-map" class="mb-3"></div>
+        </div>
     </div>
+     
+    
+    
+    <h1 class="mt-2 mb-4">All Campgrounds</h1>
+
 
 
     <% for(let campground of campgrounds){ %>
@@ -65,6 +66,7 @@
                     // Add a new source from our GeoJSON data and
                     // set the 'cluster' option to true. GL-JS will
                     // add the point_count property to your source data.
+                    
                     map.addSource('campgrounds', {
                         type: 'geojson',
                         // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
@@ -131,6 +133,7 @@
                             'circle-stroke-color': '#fff'
                         }
                     });
+                    map.resize();
 
                     // inspect a cluster on click
                     map.on('click', 'clusters', (e) => {
