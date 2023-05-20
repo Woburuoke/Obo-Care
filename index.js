@@ -7,7 +7,6 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const appError = require("./utils/AppError");
 const wrapAsync = require("./utils/wrapAsync");
 const {campgroundSchema, reviewSchema} = require("./schemas");
 const campgroundRoutes = require("./routes/campground");
@@ -153,6 +152,7 @@ app.use(
     })
 );
 
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
@@ -179,10 +179,6 @@ app.get("/", (req, res)=>{
 
 })
 
-
-
-
- 
  app.all("*", (res, req, ) => {
     
      throw new AppError("Page not Found")
